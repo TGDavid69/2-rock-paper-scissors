@@ -83,7 +83,32 @@ function singleRound(){
     }
     return roundResult;    
 }
+//function that runs the singleRound function 5 times and displays
+//the final score, along with a winner.
+function game(){
 
+    for (let i = 0; i < 5; i++){
+        console.log(singleRound());
+        //singleRound();
+    }
+
+    let finalScore = `The final score is ${playerScore} to ${computerScore}`;
+    let finalResult;
+    (playerScore < computerScore) ?
+    finalResult = `${finalScore}. The computer wins...`:
+    (playerScore > computerScore) ?
+    finalResult = `${finalScore}. You win!!! `:
+    //(playerScore === computerScore) ? Unnecessary.
+    finalResult = `${finalScore}. It's a tie O:`;
+
+    return finalResult;
+    //resetting scores to 0. I know we can just refresh and there's
+    //no UI to actually reset but yeah lol
+    playerScore = 0;
+    computerScore = 0;
+}
+
+console.log(game());
 
 
 /* console.log(singleRound());
